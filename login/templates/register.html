@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Page</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style>
+        .container{
+            margin-top: 100px;
+        }
+        span
+        {
+            display:block;
+            color: #b2312b;.
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>注册页面</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+            <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                  <div class="form-group">
+                    <label for="user">用户名:</label>
+                    {{ obj.username }} <span>{{ obj.errors.username.0 }}</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="pwd">密码：</label>
+                    {{ obj.pwd }} <span>{{ obj.errors.pwd.0 }}</span>
+                  </div>
+                   <div class="form-group">
+                    <label for="pwd_again">密码确认：</label>
+                    {{ obj.pwd_again }}<span>{{ obj.errors.pwd_again.0 }}</span>
+                  </div>
+                    <div>
+                    <span>{{ Success }}</span>
+                    </div>
+
+                    <input type="submit" name='register' value = "注册" onclick="location='/register/' "/>
+                    <a href="http://127.0.0.1:8000/login">已有账号？</a>
+                </form>
+            <hr>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
